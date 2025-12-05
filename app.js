@@ -12,22 +12,30 @@ import ReactDOM from "react-dom/client";
   </div>
 </div>; 
 } */
-const Hello=()=>{
- return "This is a Component"
-}
+const Hello=()=>(
+  "This is a Component"
+);
 
-const heading02=(
+const Greetings=()=>(
+  <div><h1>component composition</h1>
+  <p>When you call a component in another component</p>
+  </div>
+
+);
+
+const Heading02=(
   <div>
     <Hello/>
   </div>
 )
-console.log(heading02);
+console.log(Heading02);
 
 
 const heading=(
   <div>
     <h1>This is day3 react using jsx</h1>
      <div>
+      <Greetings/>
   </div>
   </div>
  
@@ -48,4 +56,4 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
 
 const root2 = ReactDOM.createRoot(document.getElementById("root2"));
-root2.render(heading02);
+root2.render(Heading02);
