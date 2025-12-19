@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import ResCard from "./ResCard";
-import { SWIGGY_API } from "../utils/constants";
+import { PRODUCT_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [listOfProducts, setListOfProducts] = useState([]);
   const[filteredList,setFilteredList] = useState([])
   const [serachText, setSearchText] = useState("");
 
@@ -13,20 +13,18 @@ const Body = () => {
     fetchData();
   }, []);
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_API);
+    const data = await fetch(PRODUCT_API);
     const json = await data.json();
-    console.log(json.data.cards);
-    setListOfRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || []
+    /* console.log(json.data.cards); */
+    setListOfProducts(
+      json?.products || []
     );
     setFilteredList(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || []
+      json?.products || []
     );
   };
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfProducts.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -35,12 +33,12 @@ const Body = () => {
           <button
             className="filter-btn"
             onClick={() => {
-              const filtered = listOfRestaurants.filter((res) => res.info.avgRating > 4.5);
+              const filtered = listOfProducts.filter((product) => product?.rating > 4.5);
               console.log(filtered)
               setFilteredList(filtered);
             }}
           >
-            Top Rated Restaurants
+            Top Rated Products
           </button>
           <div className="search-container">
             <input
@@ -53,14 +51,14 @@ const Body = () => {
               }}
             />{" "}
             <button onClick={()=>{
-             const filtered= listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(serachText.toLocaleLowerCase()))
+             const filtered= listOfProducts.filter((product) => product?.title?.toLowerCase().includes(serachText.toLocaleLowerCase()))
              setFilteredList(filtered)
             }} >search</button>
           </div>
         </div>
         <div className="restau-cards">
-          {filteredList?.map((res) => (
-            <ResCard resDetails={res} key={res.info.id} />
+          {filteredList?.map((product) => (
+            <ResCard products={product} key={product.id} />
           ))}
         </div>
       </div>

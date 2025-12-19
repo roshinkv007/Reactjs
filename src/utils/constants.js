@@ -1,3 +1,3 @@
-export const LOGO_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGHvW6Om-8r2Djbq-a-wrIKKgdfFeVi_uJhw&s"
-export const IMG_BASE_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"
-export const SWIGGY_API = "https://www.swiggy.com/dapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=9.94060&lng=76.26530&carousel=true&third_party_vendor=1"
+export const LOGO_URL = "https://marketplace.canva.com/EAGVEEMC0FA/1/0/1600w/canva-navy-and-pink-modern-online-store-logo-vnThjIjV3xs.jpg"
+/* export const IMG_BASE_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/" */
+export const PRODUCT_API = "https://dummyjson.com/products"
