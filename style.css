@@ -1,4 +1,4 @@
-/* ================= Global Reset & Theme ================= */
+/*  
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body {
   color: #222;
 }
 
-/* ================= Header ================= */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -25,13 +25,13 @@ body {
   z-index: 20;
 }
 
-/* Logo */
+
 .logo {
   width: 110px;
   object-fit: contain;
 }
 
-/* Nav */
+
 .nav {
   display: flex;
   gap: 32px;
@@ -47,7 +47,7 @@ body {
   transition: color 0.25s ease;
 }
 
-/* Underline hover */
+
 .nav li::after {
   content: "";
   position: absolute;
@@ -67,7 +67,7 @@ body {
   width: 100%;
 }
 
-/* ================= Filter Section ================= */
+
 .filter-container {
   padding: 20px 36px;
   display: flex;
@@ -94,7 +94,7 @@ body {
   box-shadow: 0 6px 14px rgba(255, 107, 53, 0.35);
 }
 
-/* Search */
+
 .search-input {
   width: 220px;
   padding: 10px 14px;
@@ -110,7 +110,7 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
 }
 
-/* ================= Cards ================= */
+
 .restau-cards {
   display: flex;
   flex-wrap: wrap;
@@ -120,7 +120,7 @@ body {
   justify-content: center;
 }
 
-/* Card */
+
 .res-container {
   width: 300px;
   background: #ffffff;
@@ -135,14 +135,14 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
 }
 
-/* Image */
+
 .food-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
-/* Content */
+
 .res-content {
   padding: 16px;
 }
@@ -161,7 +161,7 @@ body {
   line-height: 1.4;
 }
 
-/* Rating badge */
+
 .rating {
   display: inline-flex;
   align-items: center;
@@ -174,7 +174,7 @@ body {
   font-weight: 600;
 }
 
-/* ================= Shimmer ================= */
+
 .shimmer-card {
   width: 300px;
   border-radius: 18px;
@@ -223,7 +223,7 @@ body {
   width: 40%;
 }
 
-/* ================= Buttons ================= */
+
 .btn-login {
   font-size: 16px;
   padding: 6px 14px;
@@ -238,6 +238,326 @@ body {
   background: #ff6b35;
   color: #fff;
   border-color: #ff6b35;
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 18px;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .filter-container {
+    padding: 16px 18px;
+  }
+
+  .restau-cards {
+    padding: 16px;
+  }
+
+  .res-container {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.footer {
+  padding: 16px;
+  background-color: #f8f8f8;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #e0e0e0;
+}  */
+  /* ================= Global Reset & Theme ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #f1f2f4; /* soft dark background */
+  color: #1f2937;
+}
+
+/* Root for sticky footer */
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= Header ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 36px;
+  background: rgba(245, 246, 248, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #dcdfe3;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+/* Logo */
+.logo {
+  width: 110px;
+  object-fit: contain;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav li {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #4b5563;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+/* Underline hover */
+.nav li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background: #ff6b35;
+  transition: width 0.25s ease;
+}
+
+.nav li:hover {
+  color: #ff6b35;
+}
+
+.nav li:hover::after {
+  width: 100%;
+}
+
+/* ================= Filter Section ================= */
+.filter-container {
+  padding: 20px 36px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #eef0f3;
+}
+
+/* Filter Button */
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #cfd3d8;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: #ff6b35;
+  color: #fff;
+  border-color: #ff6b35;
+  box-shadow: 0 6px 14px rgba(255, 107, 53, 0.35);
+}
+
+/* Search */
+.search-input {
+  width: 220px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid #cfd3d8;
+  outline: none;
+  font-size: 14px;
+  background: #f3f4f6;
+  color: #111827;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-input::placeholder {
+  color: #6b7280;
+}
+
+.search-input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+}
+
+/* ================= Main Body ================= */
+.body {
+  flex: 1;
+}
+
+/* ================= Cards ================= */
+.restau-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  padding: 24px 36px 40px;
+  justify-content: center;
+}
+
+/* Card */
+.res-container {
+  width: 300px;
+  background: #f8f9fb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.res-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+
+/* Image */
+.food-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Content */
+.res-content {
+  padding: 16px;
+}
+
+.res-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+.res-content p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Rating badge */
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #dff3ea;
+  color: #0f6b43;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ================= Shimmer ================= */
+.shimmer-card {
+  width: 300px;
+  border-radius: 18px;
+  background: #f3f4f6;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.shimmer-img,
+.shimmer-line {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #d1d5db 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.shimmer-img {
+  width: 100%;
+  height: 200px;
+}
+
+.shimmer-content {
+  padding: 16px;
+}
+
+.shimmer-line {
+  height: 14px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.shimmer-line.title {
+  width: 70%;
+  height: 18px;
+}
+
+.shimmer-line.subtitle {
+  width: 90%;
+}
+
+.shimmer-line.small {
+  width: 40%;
+}
+
+/* ================= Buttons ================= */
+.btn-login {
+  font-size: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #cfd3d8;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #374151;
+}
+
+.btn-login:hover {
+  background: #ff6b35;
+  color: #fff;
+  border-color: #ff6b35;
+}
+
+/* ================= Footer ================= */
+.footer {
+  padding: 16px;
+  background-color: #eceef1;
+  text-align: center;
+  font-size: 14px;
+  color: #4b5563;
+  border-top: 1px solid #d1d5db;
 }
 
 /* ================= Responsive ================= */
@@ -264,6 +584,12 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+  .res-container {
+    max-width: 100%;
+  }
+}
+
 /* ================= Animation ================= */
 @keyframes shimmer {
   0% {
@@ -272,4 +598,21 @@ body {
   100% {
     background-position: -100% 0;
   }
+}
+
+.link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.user-info{
+  margin: 10px;
+  padding: 10px;
+  border:1px solid black
+}
+
+.Student-info{
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid blue;
 }

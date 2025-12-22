@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ResCard from "./ResCard";
 import { PRODUCT_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfProducts, setListOfProducts] = useState([]);
@@ -34,7 +35,7 @@ const Body = () => {
             className="filter-btn"
             onClick={() => {
               const filtered = listOfProducts.filter((product) => product?.rating > 4.5);
-              console.log(filtered)
+              
               setFilteredList(filtered);
             }}
           >
@@ -58,8 +59,11 @@ const Body = () => {
         </div>
         <div className="restau-cards">
           {filteredList?.map((product) => (
-            <ResCard products={product} key={product.id} />
+            <Link className="link" key={product.id} to={`products/${product.id}`}>
+            <ResCard products={product}  />
+            </Link>
           ))}
+          
         </div>
       </div>
     </div>
