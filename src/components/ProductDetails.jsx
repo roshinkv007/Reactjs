@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import useProductDetails from "../utils/hooks/useProductDetails";
+import useOnlineStatus from "../utils/hooks/useOnlineStatus";
 
 const ProductDetails = () => {
-  const [productDetails, setProductDetails] = useState(null);
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
   const { productId } = useParams();
-  console.log(productId);
+  const productDetails = useProductDetails(productId);
+  const onlineStatus = useOnlineStatus();
 
-  const fetchProducts = async () => {
-    const data = await fetch(`https://dummyjson.com/products/${productId}`);
-    const json = await data.json();
-    console.log(json);
+  if (onlineStatus === false)
+    return <h1>Oops! your offline check your internet</h1>;
 
-    setProductDetails(json);
-  };
   if (productDetails === null) return <Shimmer />;
   const { title, category, price, description } = productDetails;
   return (
